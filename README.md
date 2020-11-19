@@ -75,6 +75,7 @@ So lets create excel file with data like in example in top.
             List<ExampleType> list = new List<ExampleType>(...); 
             return  this.Excel(e => {
                 var firstWorkSheet = e.addWorkSheet("workSheetName");
+                firstWorkSheet.AddHeaders(headers);
                 firstWorkSheet.AddLoop(list);
             });
         }
@@ -82,8 +83,9 @@ So lets create excel file with data like in example in top.
 
         public IActionResult Index()
         {
+            List<string> headers = new List<sting>(){"FullName","prop1,"prop2","prop3"};
             List<ExampleType> list = new List<ExampleType>(...); 
-            return this.Excel(e => e.addWorkSheet("workSheetName").AddLoop(list));
+            return this.Excel(e => e.addWorkSheet("workSheetName").AddHeaders(headers).AddLoop(list));
         }
         
 
