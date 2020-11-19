@@ -33,18 +33,26 @@ namespace Excel
         
     }
 
-    public static class ExcelResult {
-        public static FileContentResult Excel(this ControllerBase obj, Action<ExcelPackage> result,string fileName = "file"){
-            var package = new ExcelPackage();
-            result(package);
-            return obj.File(
-                fileContents: package.GetAsByteArray(),
-                contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                fileDownloadName: fileName + ".xlsx");
+    public class Package{
+        public ExcelPackage package { get; private set; }
+        public Package()
+        {
+            package = new ExcelPackage();
         }
 
-        public static WorkSheet addWorkSheet(this ExcelPackage obj, string worksheetName){
-            return new WorkSheet(obj,worksheetName);
+        public WorkSheet addWorkSheet( string worksheetName){
+            return new WorkSheet(package,worksheetName);
+        }
+    }
+
+    public static class ExcelResult {
+        public static FileContentResult Excel(this ControllerBase obj, Action<Package> result,string fileName = "file"){
+            var package = new Package();
+            result(package);
+            return obj.File(
+                fileContents: package.package.GetAsByteArray(),
+                contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                fileDownloadName: fileName + ".xlsx");
         }
     }
 }
