@@ -1,0 +1,9 @@
+C:\Users\_qosh\Documents\C#\Excel\bin\Debug\netcoreapp3.1\Excel.deps.json
+C:\Users\_qosh\Documents\C#\Excel\bin\Debug\netcoreapp3.1\Excel.dll
+C:\Users\_qosh\Documents\C#\Excel\obj\Debug\netcoreapp3.1\Excel.csprojAssemblyReference.cache
+C:\Users\_qosh\Documents\C#\Excel\obj\Debug\netcoreapp3.1\Excel.AssemblyInfoInputs.cache
+C:\Users\_qosh\Documents\C#\Excel\obj\Debug\netcoreapp3.1\Excel.AssemblyInfo.cs
+C:\Users\_qosh\Documents\C#\Excel\bin\Debug\netcoreapp3.1\Excel.pdb
+C:\Users\_qosh\Documents\C#\Excel\obj\Debug\netcoreapp3.1\Excel.dll
+C:\Users\_qosh\Documents\C#\Excel\obj\Debug\netcoreapp3.1\Excel.pdb
+C:\Users\_qosh\Documents\C#\Excel\obj\Debug\netcoreapp3.1\Excel.csproj.CoreCompileInputs.cache
