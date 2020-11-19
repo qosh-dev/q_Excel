@@ -35,6 +35,16 @@ Method takes e (not required) arguments :
 * colomn(1) = need to set from what colomn you want to read
 * WorksheetsIndex(0) need to set from which workshet read data
 
+By the way class ExampleType looks like this 
+    
+    public class ExampleType
+    {
+        public string FullName { get; set; }
+        public int prop1 { get; set; }
+        public int prop2 { get; set; }
+        public int prop3 { get; set; }
+    }
+
 ***
 
 Class also has method ParseTo<T> 
@@ -48,4 +58,41 @@ End indexer
 What's return value of current cell
 
 
+
+### 2. Create file
+There are 3 was to create Excel file 
+
+
+* byte[] Build(Action<ExcelPackage> result)
+* void Build(Action<ExcelPackage> result, string path)
+* FileContentResult Excel(this ControllerBase obj, Action<ExcelPackage> result,string fileName = "file")
+
+To example I will use third method whats return file content on Asp.Net Core application
+So lets create excel file with data like in example in top.
+
+        public IActionResult Index()
+        {
+            List<ExampleType> list = new List<ExampleType>(...); 
+            return  this.Excel(e => {
+                var firstWorkSheet = e.addWorkSheet("workSheetName");
+                firstWorkSheet.AddLoop(list);
+            });
+        }
+ Thats all you need to to do, or you can do more shotly
+
+        public IActionResult Index()
+        {
+            List<ExampleType> list = new List<ExampleType>(...); 
+            return this.Excel(e => e.addWorkSheet("workSheetName").AddLoop(list));
+        }
+        
+
+Methods                   | prop1                           | args(required)                            | args(required)
+--------------------------|---------------------------------|-------------------------------------------|---------------
+indexer                   | set value to cell               | int row, int column                       |
+indexer                   | set value to cells              | int row, int column, int row2, int column2|
+AddHeaders                | Add bold text to cells          | T[] headersList                           | int colomn = 1, int row = 0, ExcelHorizontalAlignment horizontalAlignment = ExcelHorizontalAlignment.Left, bool isBold = true, int fontSize = 12
+AddMergedHeaders          | Add merged headers              | string[] valueIndexArr, int step          | int row = 0, int colomn = 0, ExcelHorizontalAlignment horizontalAlignment = ExcelHorizontalAlignment.Center, bool isBold = true, int fontSize = 12
+AddLoop                   | Add your List to file           | List<T> list                              | int colomn = 1, int row = 0
+AddLoopVertical           | Add your List to file(vertical) | List<T> list                              | int colomn = 1, int row = 0
 
