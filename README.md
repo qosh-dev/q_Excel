@@ -35,6 +35,8 @@ Method takes e (not required) arguments :
 * colomn(1) = need to set from what colomn you want to read
 * WorksheetsIndex(0) need to set from which workshet read data
 
+***
+
 Class also has method ParseTo<T> 
   
      T RowTo<T>(int row = 0, int colomn = 1,int WorksheetsIndex = 0)
