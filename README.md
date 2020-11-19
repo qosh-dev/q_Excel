@@ -45,7 +45,7 @@ Which parse one row to obj(T)
 End indexer 
 
      string this[int row, int column]
-What's return value on current cell
+What's return value of current cell
 
 
 
