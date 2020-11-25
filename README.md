@@ -89,7 +89,7 @@ So lets create excel file with data like in example in top.
         }
         
 
-Methods                   | prop1                           | args(required)                            | args(not required)
+methods                   | desc                            | args(required)                            | args(not required)
 --------------------------|---------------------------------|-------------------------------------------|---------------
 indexer                   | set value to cell               | int row, int column                       |
 indexer                   | set value to cells              | int row, int column, int row2, int column2|
