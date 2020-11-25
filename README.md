@@ -60,7 +60,7 @@ What's return value of current cell
 
 
 ### 2. Create file
-There are 3 was to create Excel file 
+There are 3 ways to create Excel file 
 
 
 * byte[] Build(Action<ExcelPackage> result)
